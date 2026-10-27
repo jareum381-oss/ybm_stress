@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>감정과 스트레스 | 보건교사 참고자료</title>
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --surface-2: #f1f5f9;
+    --line: #e2e8f0;
+    --text: #1e293b;
+    --text-2: #475569;
+    --text-3: #8492a6;
+    --primary: #2563a8;
+    --primary-dark: #1e4d8c;
+    --primary-soft: #dbeafe;
+    --green: #1a7a4a;
+    --green-soft: #d1fae5;
+    --teal: #0d7a8a;
+    --teal-soft: #ccfbf1;
+    --amber: #f59e0b;
+    --amber-soft: #fef3c7;
+    --amber-ink: #92400e;
+    --red: #d14d4d;
+    --red-soft: #fee2e2;
+    --purple: #7c3aed;
+    --purple-soft: #ede9fe;
+    --radius: 12px;
+    --radius-sm: 8px;
+    --shadow: 0 1px 3px rgba(15,23,42,.06), 0 4px 14px rgba(15,23,42,.05);
+    --header-a: #1e4d8c;
+    --header-b: #2563a8;
+    --header-c: #0d7a8a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --bg: #0e151d;
+      --surface: #16202b;
+      --surface-2: #1d2a37;
+      --line: #2a3a4a;
+      --text: #e6edf5;
+      --text-2: #b4c1cf;
+      --text-3: #7f8fa1;
+      --primary: #6aa5e8;
+      --primary-dark: #9cc3f0;
+      --primary-soft: #1b3350;
+      --green: #4fc98a;
+      --green-soft: #133426;
+      --teal: #45c4d2;
+      --teal-soft: #11343a;
+      --amber: #f5b13d;
+      --amber-soft: #3a2c10;
+      --amber-ink: #f5cf8a;
+      --red: #f08a8a;
+      --red-soft: #3d1c1f;
+      --purple: #a98bf5;
+      --purple-soft: #2a2145;
+      --shadow: 0 1px 2px rgba(0,0,0,.3);
+      --header-a: #14335c;
+      --header-b: #1a4a7e;
+      --header-c: #0b5560;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #0e151d; --surface: #16202b; --surface-2: #1d2a37; --line: #2a3a4a;
+    --text: #e6edf5; --text-2: #b4c1cf; --text-3: #7f8fa1;
+    --primary: #6aa5e8; --primary-dark: #9cc3f0; --primary-soft: #1b3350;
+    --green: #4fc98a; --green-soft: #133426; --teal: #45c4d2; --teal-soft: #11343a;
+    --amber: #f5b13d; --amber-soft: #3a2c10; --amber-ink: #f5cf8a;
+    --red: #f08a8a; --red-soft: #3d1c1f; --purple: #a98bf5; --purple-soft: #2a2145;
+    --shadow: 0 1px 2px rgba(0,0,0,.3);
+    --header-a: #14335c; --header-b: #1a4a7e; --header-c: #0b5560;
+  }
+
+  :root {
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *, *::before, *::after { box-sizing: inherit; margin: 0; padding: 0; }
+  html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+
+  body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+  img, iframe { max-width: 100%; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 3px solid var(--amber); outline-offset: 2px; border-radius: 6px; }
+
+  /* ===== HEADER ===== */
+  .site-header {
+    background: linear-gradient(135deg, var(--header-a) 0%, var(--header-b) 60%, var(--header-c) 100%);
+    color: #fff;
+    padding: 32px 20px 28px;
+  }
+  .header-inner { max-width: 1180px; margin: 0 auto; }
+  .header-breadcrumb { font-size: 12px; color: rgba(255,255,255,.75); margin-bottom: 10px; }
+  .header-breadcrumb span { margin: 0 6px; opacity: .55; }
+  .header-title { font-size: clamp(26px, 4.5vw, 38px); font-weight: 800; letter-spacing: -.02em; line-height: 1.2; }
+  .header-title .num {
+    display: inline-block; background: #f59e0b; color: #1e293b;
+    font-size: 18px; font-weight: 900; border-radius: 8px; padding: 2px 10px;
+    margin-right: 10px; vertical-align: middle;
+  }
+  .header-sub { font-size: 15px; color: rgba(255,255,255,.85); margin-top: 6px; }
+  .header-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .header-tag { background: rgba(255,255,255,.15); border-radius: 6px; padding: 3px 11px; font-size: 13px; }
+
+  /* ===== LAYOUT ===== */
+  .layout {
+    max-width: 1180px; margin: 0 auto; padding: 24px 20px 60px;
+    display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 28px; align-items: start;
+  }
+
+  /* ===== NAV ===== */
+  .side-nav {
+    position: sticky; top: calc(16px + env(safe-area-inset-top, 0px));
+    background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 14px 10px;
+    max-height: calc(100vh - 32px); overflow-y: auto;
+  }
+  .nav-group + .nav-group { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line); }
+  .nav-group-title { font-size: 12px; font-weight: 700; color: var(--text-3); padding: 0 10px 6px; }
+  .nav-btn {
+    display: flex; align-items: center; gap: 10px; width: 100%;
+    background: none; border: 0; cursor: pointer; text-align: left;
+    padding: 8px 10px; border-radius: 8px; font-size: 14px; color: var(--text-2); line-height: 1.4;
+  }
+  .nav-btn:hover { background: var(--surface-2); color: var(--text); }
+  .nav-btn[aria-current="true"] { background: var(--primary-soft); color: var(--primary-dark); font-weight: 700; }
+  .nav-ico {
+    width: 26px; height: 26px; flex-shrink: 0; border-radius: 7px;
+    display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800;
+    background: var(--surface-2);
+  }
+  .nav-ico.c1 { background: #2563a8; color: #fff; }
+  .nav-ico.c2 { background: #0d7a8a; color: #fff; }
+  .nav-ico.c3 { background: #1a7a4a; color: #fff; }
+  .nav-ico.c4 { background: #d14d4d; color: #fff; }
+  .nav-ico.c5 { background: #7c3aed; color: #fff; }
+
+  /* ===== PANELS ===== */
+  .panel { display: none; }
+  .panel.active { display: block; animation: panelIn .2s ease-out; }
+  @keyframes panelIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .panel.active { animation: none; } }
+
+  .panel-head { margin-bottom: 20px; }
+  .panel-kicker { font-size: 13px; color: var(--text-3); margin-bottom: 2px; }
+  .panel-title { font-size: 24px; font-weight: 800; letter-spacing: -.01em; line-height: 1.35; display: flex; align-items: center; gap: 12px; }
+  .panel-desc { font-size: 14px; color: var(--text-2); margin-top: 6px; }
+  .data-num {
+    width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 800; color: #fff;
+  }
+  .data-num.c1 { background: #2563a8; } .data-num.c2 { background: #0d7a8a; } .data-num.c3 { background: #1a7a4a; }
+  .data-num.c4 { background: #d14d4d; } .data-num.c5 { background: #7c3aed; }
+
+  .card { background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+
+  /* ===== SUB TABS (within 자료) ===== */
+  .subtabs {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 6px; margin-bottom: 14px;
+  }
+  .subtab {
+    flex: 1 1 auto; border: 0; background: none; cursor: pointer;
+    padding: 9px 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--text-2);
+    white-space: nowrap;
+  }
+  .subtab:hover { background: var(--surface-2); }
+  .subtab[aria-selected="true"] { background: var(--primary); color: #fff; }
+  .subpanel { display: none; }
+  .subpanel.active { display: block; }
+
+  /* ===== CONTENT BLOCKS ===== */
+  .block-label {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; padding: 4px 11px; border-radius: 20px;
+    margin: 22px 0 10px;
+  }
+  .block-label:first-child { margin-top: 0; }
+  .bl-summary { background: var(--primary-soft); color: var(--primary-dark); }
+  .summary-box { background: var(--surface-2); border-radius: var(--radius-sm); padding: 14px 18px; font-size: 15px; color: var(--text); line-height: 1.8; }
+  .source-note { font-size: 12px; color: var(--text-3); margin-top: 8px; padding-left: 4px; }
+
+  .point-list { list-style: none; }
+  .point-list li {
+    padding: 11px 0 11px 22px; position: relative; font-size: 15px; color: var(--text);
+    line-height: 1.65; border-bottom: 1px solid var(--line);
+  }
+  .point-list li:last-child { border-bottom: none; }
+  .point-list li::before { content: '▶'; position: absolute; left: 2px; top: 15px; font-size: 9px; color: var(--green); }
+
+  .question-list { list-style: none; }
+  .question-list li {
+    background: var(--amber-soft); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 10px;
+    font-size: 15px; color: var(--text); display: flex; align-items: flex-start; gap: 10px;
+  }
+  .q-mark {
+    background: var(--amber); color: #fff; border-radius: 50%; width: 22px; height: 22px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; margin-top: 2px;
+  }
+  .activity-box {
+    background: var(--teal-soft); border-radius: var(--radius-sm); padding: 16px 18px;
+    font-size: 15px; color: var(--text); line-height: 1.8; border-left: 4px solid var(--teal);
+  }
+  .activity-box strong { display: block; font-size: 16px; margin-bottom: 4px; color: var(--teal); }
+  .caution-box {
+    background: var(--red-soft); border-radius: var(--radius-sm); padding: 16px 18px;
+    font-size: 15px; color: var(--text); line-height: 1.8; border-left: 4px solid var(--red);
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .caution-box .icon { font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+  .highlight-box {
+    background: var(--primary-soft); border-radius: var(--radius-sm); padding: 14px 18px;
+    font-size: 14px; color: var(--primary-dark); margin: 14px 0 0; border-left: 4px solid var(--primary);
+  }
+
+  /* ===== USAGE (수업 활용 안내) ===== */
+  .usage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+  .usage-card { background: var(--surface); border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); border-top: 4px solid; }
+  .usage-card.blue { border-color: #2563a8; } .usage-card.green { border-color: #1a7a4a; }
+  .usage-card.amber { border-color: #f59e0b; } .usage-card.purple { border-color: #7c3aed; }
+  .usage-card-icon { font-size: 24px; margin-bottom: 8px; }
+  .usage-card-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .usage-card ul { list-style: none; font-size: 14px; color: var(--text-2); }
+  .usage-card li { padding-left: 12px; position: relative; margin-bottom: 4px; }
+  .usage-card li::before { content: '·'; position: absolute; left: 0; color: var(--text-3); }
+
+  .map-title { font-size: 16px; font-weight: 700; margin: 28px 0 12px; }
+  .map-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+  .map-link {
+    display: flex; gap: 12px; align-items: center; text-align: left; cursor: pointer;
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 12px 14px; font-size: 14px; line-height: 1.4;
+  }
+  .map-link:hover { border-color: var(--primary); }
+  .map-link small { display: block; color: var(--text-3); font-size: 12px; margin-top: 2px; }
+
+  /* ===== CONCEPT CARDS ===== */
+  .concept-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 12px; }
+  .concept-card {
+    background: var(--surface); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow);
+    cursor: pointer; border: 0; border-left: 4px solid var(--line); text-align: left; width: 100%;
+    transition: border-color .15s, background .15s;
+  }
+  .concept-card:hover { border-left-color: var(--primary); }
+  .concept-card.active { border-left-color: var(--primary); background: var(--primary-soft); }
+  .concept-card-term { font-size: 16px; font-weight: 700; display: block; }
+  .concept-card-en { font-size: 12px; color: var(--text-3); font-style: italic; display: block; margin-bottom: 6px; }
+  .concept-card-short { font-size: 14px; color: var(--text-2); line-height: 1.55; display: block; }
+  .concept-card-detail {
+    display: none; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line);
+    font-size: 14px; color: var(--primary-dark); line-height: 1.65;
+  }
+  .concept-card.active .concept-card-detail { display: block; }
+  .concept-go {
+    display: none; margin-top: 10px; font-size: 13px; font-weight: 700; color: var(--primary);
+    background: none; border: 1px solid var(--primary); border-radius: 6px; padding: 4px 10px; cursor: pointer;
+  }
+  .concept-card.active .concept-go { display: inline-block; }
+
+  /* ===== EMOTION WHEEL ===== */
+  .wheel-container { display: flex; flex-wrap: wrap; gap: 20px; align-items: flex-start; }
+  .emotion-wheel-svg { flex: 0 0 auto; width: 280px; max-width: 100%; height: auto; }
+  .wheel-inner { fill: var(--surface); }
+  .wheel-center { fill: var(--text); }
+  .wheel-legend { flex: 1; min-width: 220px; }
+  .wheel-legend-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+  .emotion-tag-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .emotion-chip { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; color: #fff; }
+
+  /* ===== COMPARE TABLE ===== */
+  .table-wrap { overflow-x: auto; border-radius: var(--radius-sm); border: 1px solid var(--line); }
+  .compare-table { width: 100%; min-width: 520px; border-collapse: collapse; font-size: 14px; }
+  .compare-table thead tr { background: #1e293b; color: #fff; }
+  .compare-table th { padding: 12px 16px; text-align: left; font-weight: 700; }
+  .compare-table th.eu { color: #6ee7a8; } .compare-table th.dis { color: #fca5a5; }
+  .compare-table tbody tr { border-bottom: 1px solid var(--line); }
+  .compare-table tbody tr:nth-child(even) { background: var(--surface-2); }
+  .compare-table td { padding: 11px 16px; vertical-align: top; color: var(--text); }
+  .compare-table td:first-child { font-weight: 700; color: var(--text-2); width: 96px; white-space: nowrap; }
+
+  /* ===== FLOW CHART ===== */
+  .flow-chart { display: flex; align-items: stretch; }
+  .flow-step { flex: 1; min-width: 0; background: var(--surface); border: 2px solid var(--primary-soft); border-radius: var(--radius); padding: 14px 12px; }
+  .flow-arrow { display: flex; align-items: center; color: var(--primary); font-size: 20px; padding: 0 4px; flex-shrink: 0; }
+  .flow-icon { font-size: 22px; text-align: center; }
+  .flow-title { font-size: 14px; font-weight: 700; color: var(--primary); margin: 4px 0 6px; text-align: center; }
+  .flow-body { list-style: none; font-size: 13px; color: var(--text-2); line-height: 1.5; }
+  .flow-body li { margin-bottom: 3px; padding-left: 10px; position: relative; }
+  .flow-body li::before { content: '·'; position: absolute; left: 0; }
+
+  /* ===== SUPPORT STEPS ===== */
+  .support-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
+  .support-step { background: var(--purple-soft); border-radius: var(--radius); padding: 16px; border-bottom: 3px solid var(--purple); }
+  .support-step-num { font-size: 12px; font-weight: 800; color: var(--purple); margin-bottom: 4px; }
+  .support-step-title { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+  .support-step-body { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+
+  /* ===== VIDEO ===== */
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .video-card {
+    display: flex; flex-direction: column; text-decoration: none; color: var(--text);
+    background: var(--surface); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+    border: 1px solid var(--line); transition: border-color .15s;
+  }
+  .video-card:hover { border-color: var(--primary); }
+  .video-thumb { position: relative; display: block; aspect-ratio: 16 / 9; background: #0f172a; overflow: hidden; }
+  .video-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+  .video-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; opacity: .9; transition: opacity .15s; }
+  .video-card:hover .video-play { opacity: 1; }
+  .video-fallback { display: none; position: absolute; inset: 0; align-items: center; justify-content: center; color: #cbd5e1; font-weight: 700; padding-top: 70px; }
+  .video-thumb.no-img .video-fallback { display: flex; }
+  .video-info { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 12px 14px; }
+  .video-num { font-size: 15px; font-weight: 700; }
+  .video-open { font-size: 13px; font-weight: 700; color: var(--primary); white-space: nowrap; }
+  .video-note { font-size: 13px; color: var(--text-3); margin-top: 12px; }
+  .video-guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 22px; }
+  .video-guide .card { padding: 18px; }
+  .video-guide h3 { font-size: 15px; margin-bottom: 8px; display: flex; gap: 8px; align-items: center; }
+  .video-guide ul { list-style: none; font-size: 14px; color: var(--text-2); }
+  .video-guide li { padding: 5px 0 5px 12px; position: relative; border-bottom: 1px solid var(--line); }
+  .video-guide li:last-child { border-bottom: 0; }
+  .video-guide li::before { content: '·'; position: absolute; left: 0; color: var(--text-3); }
+
+  /* ===== LESSON ===== */
+  .lesson-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 14px; }
+  .lesson-card-title { font-size: 15px; font-weight: 700; display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .lesson-badge { font-size: 12px; font-weight: 700; padding: 2px 9px; border-radius: 20px; white-space: nowrap; }
+  .lb-intro { background: var(--primary-soft); color: var(--primary-dark); }
+  .lb-main { background: var(--green-soft); color: var(--green); }
+  .lb-close { background: var(--amber-soft); color: var(--amber-ink); }
+  .lb-ext { background: var(--purple-soft); color: var(--purple); }
+  .lesson-list { list-style: none; }
+  .lesson-list li { font-size: 14px; color: var(--text); padding: 8px 0; border-bottom: 1px solid var(--line); line-height: 1.55; }
+  .lesson-list li:last-child { border-bottom: none; }
+
+  /* ===== QUIZ ===== */
+  .quiz-card { margin-bottom: 14px; }
+  .quiz-q { font-size: 15px; font-weight: 600; margin-bottom: 12px; }
+  .quiz-q span { color: var(--primary); }
+  .quiz-stem { font-size: 14px; color: var(--text-2); margin-bottom: 12px; padding: 10px 14px; background: var(--surface-2); border-radius: 8px; }
+  .quiz-options { list-style: none; }
+  .quiz-options button {
+    display: block; width: 100%; text-align: left; cursor: pointer; background: var(--surface);
+    padding: 9px 14px; border: 1.5px solid var(--line); border-radius: var(--radius-sm);
+    margin-bottom: 6px; font-size: 14px; color: var(--text);
+  }
+  .quiz-options button:hover { background: var(--primary-soft); border-color: var(--primary); }
+  .quiz-options button.correct { background: var(--green-soft); border-color: var(--green); color: var(--green); font-weight: 600; }
+  .quiz-options button.wrong { background: var(--red-soft); border-color: var(--red); color: var(--red); }
+  .quiz-answer-box { display: none; margin-top: 10px; padding: 12px 14px; background: var(--green-soft); border-radius: var(--radius-sm); font-size: 14px; color: var(--green); line-height: 1.65; }
+  .quiz-answer-box.show { display: block; }
+  .quiz-answer-btn { margin-top: 8px; }
+
+  /* ===== PREV / NEXT ===== */
+  .pager { display: flex; justify-content: space-between; gap: 10px; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .pager button {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-sm);
+    padding: 10px 14px; cursor: pointer; font-size: 14px; text-align: left; max-width: 48%; line-height: 1.4;
+  }
+  .pager button:hover { border-color: var(--primary); }
+  .pager button small { display: block; font-size: 12px; color: var(--text-3); }
+  .pager .next { margin-left: auto; text-align: right; }
+
+  /* ===== FOOTER ===== */
+  .footer { background: #1e293b; color: rgba(255,255,255,.6); text-align: center; padding: 26px 20px; font-size: 12px; line-height: 1.8; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; gap: 16px; padding-top: 0; }
+    .side-nav {
+      top: 0; max-height: none; overflow: visible; border-radius: 0;
+      margin: 0 -20px; padding: 8px 12px; z-index: 20;
+      padding-top: calc(8px + env(safe-area-inset-top, 0px));
+      top: 0;
+      display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none;
+    }
+    .side-nav::-webkit-scrollbar { display: none; }
+    .nav-group, .nav-group + .nav-group { display: contents; }
+    .nav-group-title { display: none; }
+    .nav-btn { width: auto; flex-shrink: 0; white-space: nowrap; padding: 7px 11px; border: 1px solid var(--line); font-size: 13px; }
+    .nav-ico { width: 22px; height: 22px; font-size: 12px; }
+    .flow-chart { flex-direction: column; }
+    .flow-arrow { transform: rotate(90deg); align-self: center; padding: 2px 0; }
+    .panel-title { font-size: 21px; }
+    .panel { scroll-margin-top: calc(64px + env(safe-area-inset-top, 0px)); }
+    .subtab { flex: 1 1 30%; padding: 8px 6px; font-size: 13px; }
+  }
+  @media (max-width: 900px) {
+    body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+  }
+  @media print {
+    .side-nav, .pager, .subtabs, .video-actions .btn { display: none !important; }
+    .layout { display: block; }
+    .panel, .subpanel { display: block !important; break-inside: avoid-page; margin-bottom: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-breadcrumb">Ⅱ. 정서와 정신 건강 <span>›</span> 2. 정서와 정신 건강 <span>›</span> 02. 감정과 스트레스</div>
+    <h1 class="header-title"><span class="num">02</span>감정과 스트레스</h1>
+    <p class="header-sub">중학교 보건 Ⅱ. 정서와 정신 건강 · 보건교사 수업 참고자료</p>
+    <div class="header-meta">
+      <div class="header-tag">📖 교과서 71~76쪽</div>
+      <div class="header-tag">📋 상세 자료 5개</div>
+      <div class="header-tag">🎬 참고 영상 3편</div>
+      <div class="header-tag">📝 정리하기 퀴즈 3문항</div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav class="side-nav" aria-label="자료 목차">
+    <div class="nav-group">
+      <div class="nav-group-title">수업 준비</div>
+      <button class="nav-btn" data-go="overview"><span class="nav-ico">📌</span>수업 활용 안내</button>
+      <button class="nav-btn" data-go="concepts"><span class="nav-ico">💡</span>핵심 개념</button>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">자료별 상세 내용</div>
+      <button class="nav-btn" data-go="d1"><span class="nav-ico c1">1</span>감정의 종류</button>
+      <button class="nav-btn" data-go="d2"><span class="nav-ico c2">2</span>뇌 과학으로 본 감정</button>
+      <button class="nav-btn" data-go="d3"><span class="nav-ico c3">3</span>유스트레스·디스트레스</button>
+      <button class="nav-btn" data-go="d4"><span class="nav-ico c4">4</span>스트레스 관리</button>
+      <button class="nav-btn" data-go="d5"><span class="nav-ico c5">5</span>지지와 공감하기</button>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">수업 자료</div>
+      <button class="nav-btn" data-go="video"><span class="nav-ico">🎬</span>참고 영상</button>
+      <button class="nav-btn" data-go="lesson"><span class="nav-ico">🗂️</span>수업 흐름</button>
+      <button class="nav-btn" data-go="quiz"><span class="nav-ico">✅</span>정리하기 퀴즈</button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- ===== 수업 활용 안내 ===== -->
+    <section class="panel" id="overview" data-title="수업 활용 안내">
+      <div class="panel-head">
+        <div class="panel-kicker">수업 준비</div>
+        <h2 class="panel-title">수업 활용 안내</h2>
+        <p class="panel-desc">왼쪽 목차(모바일은 위쪽 목차)에서 항목을 눌러 필요한 부분만 바로 볼 수 있습니다.</p>
+      </div>
+      <div class="usage-grid">
+        <div class="usage-card blue">
+          <div class="usage-card-icon">📌</div>
+          <div class="usage-card-title">이 자료의 활용 목적</div>
+          <ul>
+            <li>수업 전 교사의 배경 지식 확충</li>
+            <li>수업 중 학생 발문 및 보충 설명</li>
+            <li>교과서(71~76쪽) 연계 심화 자료</li>
+            <li>정리하기 퀴즈 및 활동지 제작 참고</li>
+          </ul>
+        </div>
+        <div class="usage-card green">
+          <div class="usage-card-icon">✅</div>
+          <div class="usage-card-title">수업 전 교사 확인 포인트</div>
+          <ul>
+            <li>플루치크의 8가지 기본 감정 숙지</li>
+            <li>1차·2차 감정 차이 명확히 이해</li>
+            <li>유스트레스·디스트레스 구분</li>
+            <li>스트레스 관리 4단계 흐름 파악</li>
+          </ul>
+        </div>
+        <div class="usage-card amber">
+          <div class="usage-card-icon">⚠️</div>
+          <div class="usage-card-title">학생 지도 시 유의점</div>
+          <ul>
+            <li>감정 표현에 옳고 그름이 없음을 강조</li>
+            <li>스트레스를 무조건 나쁜 것으로 오해 방지</li>
+            <li>정신 건강 이슈에 낙인 발생 예방</li>
+            <li>개인 경험 공유 시 안전한 분위기 조성</li>
+          </ul>
+        </div>
+        <div class="usage-card purple">
+          <div class="usage-card-icon">🎬</div>
+          <div class="usage-card-title">예상 수업 활용 장면</div>
+          <ul>
+            <li>도입: 오늘 나의 감정 이름 맞히기</li>
+            <li>전개: 감정 바퀴로 감정 탐색 활동</li>
+            <li>전개: 유스/디스트레스 사례 분류</li>
+            <li>정리: 나만의 스트레스 관리법 공유</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="map-title">자료 바로 가기</h3>
+      <div class="map-grid">
+        <button class="map-link" data-go="concepts"><span class="nav-ico">💡</span><span>핵심 개념<small>용어 7개 카드 요약</small></span></button>
+        <button class="map-link" data-go="d1"><span class="nav-ico c1">1</span><span>감정의 종류<small>플루치크 · 감정의 바퀴</small></span></button>
+        <button class="map-link" data-go="d2"><span class="nav-ico c2">2</span><span>뇌 과학으로 본 감정<small>변연계 · 1차·2차 감정</small></span></button>
+        <button class="map-link" data-go="d3"><span class="nav-ico c3">3</span><span>유스트레스·디스트레스<small>스트레스의 두 얼굴</small></span></button>
+        <button class="map-link" data-go="d4"><span class="nav-ico c4">4</span><span>스트레스 관리<small>4가지 전략</small></span></button>
+        <button class="map-link" data-go="d5"><span class="nav-ico c5">5</span><span>지지와 공감하기<small>또래 지지 4단계</small></span></button>
+        <button class="map-link" data-go="video"><span class="nav-ico">🎬</span><span>참고 영상<small>3편 · YouTube 링크</small></span></button>
+        <button class="map-link" data-go="lesson"><span class="nav-ico">🗂️</span><span>수업 흐름<small>도입 · 전개 · 정리 · 확장</small></span></button>
+        <button class="map-link" data-go="quiz"><span class="nav-ico">✅</span><span>정리하기 퀴즈<small>3문항 · 정답 해설</small></span></button>
+      </div>
+    </section>
+
+    <!-- ===== 핵심 개념 ===== -->
+    <section class="panel" id="concepts" data-title="핵심 개념">
+      <div class="panel-head">
+        <div class="panel-kicker">수업 준비</div>
+        <h2 class="panel-title">핵심 개념 요약</h2>
+        <p class="panel-desc">카드를 누르면 상세 설명이 열리고, 관련 자료로 이동할 수 있습니다.</p>
+      </div>
+      <div class="concept-grid">
+        <div class="concept-card" role="button" tabindex="0" aria-expanded="false">
+          <span class="concept-card-term">감정</span>
+          <span class="concept-card-en">Emotion</span>
+          <span class="concept-card-short">즐겁거나 불유쾌한 마음의 상태</span>
+          <div class="concept-card-detail">뇌 과학에서는 변연계를 중심으로 조직되는 즐겁거나 불유쾌한 마음의 상태를 감정이라 한다. 이성의 반대가 아니라, 이성적 판단과 기억·학습을 돕는 핵심 뇌 기능이다.</div>
+          <button class="concept-go" data-go="d2">자료 2 보기</button>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" aria-expanded="false">
+          <span class="concept-card-term">기본 감정</span>
+          <span class="concept-card-en">Basic Emotions</span>
+          <span class="concept-card-short">분노·공포·슬픔·혐오·놀람·기대·신뢰·기쁨</span>
+          <div class="concept-card-detail">플루치크가 제안한 8가지 기본 감정. 생명체의 행동을 이끄는 방아쇠 역할을 하며, 색이 진할수록 강한 감정, 연할수록 순한 감정을 나타낸다. 이 감정들이 혼합되어 일상의 복잡한 감정이 생겨난다.</div>
+          <button class="concept-go" data-go="d1">자료 1 보기</button>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" aria-expanded="false">
+          <span class="concept-card-term">1차적 감정</span>
+          <span class="concept-card-en">Primary Emotion</span>
+          <span class="concept-card-short">모든 인간이 공통으로 갖는 본능적 감정</span>
+          <div class="concept-card-detail">공포·분노·슬픔·기쁨처럼 포유류가 진화 과정에서 갖게 된 감정. 별도 학습 없이 생존을 위해 자동으로 작동하는 뇌의 정보 처리 방식이다.</div>
+          <button class="concept-go" data-go="d2">자료 2 보기</button>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" aria-expanded="false">
+          <span class="concept-card-term">2차적 감정</span>
+          <span class="concept-card-en">Secondary Emotion</span>
+          <span class="concept-card-short">학습을 통해 사물·상황과 연결된 감정</span>
+          <div class="concept-card-detail">치과 집게만 봐도 겁이 나는 것처럼, 경험·학습을 통해 특정 사물이나 상황과 연결된 복잡한 감정. 대뇌 피질의 발달 덕분에 인간의 감정은 더욱 다양하고 정교해진다.</div>
+          <button class="concept-go" data-go="d2">자료 2 보기</button>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" aria-expanded="false">
+          <span class="concept-card-term">유스트레스</span>
+          <span class="concept-card-en">Eustress</span>
+          <span class="concept-card-short">긍정적 심리 반응을 일으키는 좋은 스트레스</span>
+          <div class="concept-card-detail">기쁜 기대, 가슴 설레는 일 앞에서 느끼는 긴장감. 교감 신경 활성화로 아드레날린·코르티솔을 분비시켜 기억력·집중력 향상에 도움을 주며, 극복 과정에서 성장을 이끈다.</div>
+          <button class="concept-go" data-go="d3">자료 3 보기</button>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" aria-expanded="false">
+          <span class="concept-card-term">디스트레스</span>
+          <span class="concept-card-en">Distress</span>
+          <span class="concept-card-short">능력을 초과하는 과다 자극에 따른 부정적 반응</span>
+          <div class="concept-card-detail">자신의 능력을 초과하는 과도한 외부 자극에 부정적으로 반응하는 것. 스트레스를 디스트레스로만 여기는 것이 가장 큰 오해이며, 적절히 활용하면 유스트레스로 전환될 수 있다.</div>
+          <button class="concept-go" data-go="d3">자료 3 보기</button>
+        </div>
+        <div class="concept-card" role="button" tabindex="0" aria-expanded="false">
+          <span class="concept-card-term">스트레스 관리</span>
+          <span class="concept-card-en">Stress Management</span>
+          <span class="concept-card-short">생활습관·이완·표현·자원 활용의 4가지 전략</span>
+          <div class="concept-card-detail">①생활 습관 관리(식사·운동·햇빛·웃음), ②이완 요법(명상·복식 호흡·근육 이완), ③감정 표현·자기 주장·의사소통, ④자원 활용(장점·주변 사람·기관)으로 구성된다.</div>
+          <button class="concept-go" data-go="d4">자료 4 보기</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 자료 1 ===== -->
+    <section class="panel" id="d1" data-title="자료 1. 감정의 종류">
+      <div class="panel-head">
+        <div class="panel-kicker">자료별 상세 내용</div>
+        <h2 class="panel-title"><span class="data-num c1">1</span>감정의 종류에 대한 이론</h2>
+        <p class="panel-desc">플루치크의 심리진화론적 분류 · 감정의 바퀴</p>
+      </div>
+      <div class="subtabs" role="tablist">
+        <button class="subtab" role="tab">📝 핵심 요약</button>
+        <button class="subtab" role="tab">👩‍🏫 설명 포인트</button>
+        <button class="subtab" role="tab">❓ 발문</button>
+        <button class="subtab" role="tab">🎨 활동</button>
+        <button class="subtab" role="tab">⚠️ 유의점</button>
+      </div>
+      <div class="card">
+        <div class="subpanel" role="tabpanel">
+          <div class="summary-box">
+            로버트 플루치크(Robert Plutchik)는 심리진화론적 관점에서 인간의 감정을 <strong>8가지 기본 감정</strong>(분노·공포·슬픔·혐오·놀람·기대·신뢰·기쁨)으로 분류했다. 이 감정들은 생명체의 행동을 이끄는 방아쇠이며, 서로 혼합·파생되어 일상의 다양한 감정을 만들어 낸다. <strong>감정의 바퀴(Wheel of Emotions)</strong>는 색의 농도로 감정의 강도를, 인접한 위치로 감정 간 유사성을 보여준다.
+          </div>
+          <div class="block-label bl-summary">🎨 플루치크의 감정의 바퀴</div>
+          <div class="wheel-container">
+            <svg class="emotion-wheel-svg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="플루치크의 8가지 기본 감정 바퀴">
+              <path d="M160,160 L160,30 A130,130 0 0,1 252,68 Z" fill="#FFD700" opacity="0.9"/>
+              <path d="M160,160 L252,68 A130,130 0 0,1 290,160 Z" fill="#5CB85C" opacity="0.9"/>
+              <path d="M160,160 L290,160 A130,130 0 0,1 252,252 Z" fill="#7CFC7C" opacity="0.85"/>
+              <path d="M160,160 L252,252 A130,130 0 0,1 160,290 Z" fill="#00BFFF" opacity="0.85"/>
+              <path d="M160,160 L160,290 A130,130 0 0,1 68,252 Z" fill="#4682B4" opacity="0.9"/>
+              <path d="M160,160 L68,252 A130,130 0 0,1 30,160 Z" fill="#8B008B" opacity="0.85"/>
+              <path d="M160,160 L30,160 A130,130 0 0,1 68,68 Z" fill="#FF4500" opacity="0.9"/>
+              <path d="M160,160 L68,68 A130,130 0 0,1 160,30 Z" fill="#FF8C00" opacity="0.9"/>
+              <circle class="wheel-inner" cx="160" cy="160" r="58"/>
+              <text x="160" y="72" text-anchor="middle" font-size="12" font-weight="700" fill="#7a5c00">기쁨</text>
+              <text x="238" y="108" text-anchor="middle" font-size="12" font-weight="700" fill="#0f3d0f">신뢰</text>
+              <text x="248" y="185" text-anchor="middle" font-size="12" font-weight="700" fill="#1a5c1a">공포</text>
+              <text x="208" y="252" text-anchor="middle" font-size="12" font-weight="700" fill="#004a6b">놀람</text>
+              <text x="113" y="268" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">슬픔</text>
+              <text x="72" y="218" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">혐오</text>
+              <text x="72" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">분노</text>
+              <text x="108" y="78" text-anchor="middle" font-size="12" font-weight="700" fill="#5a2c00">기대</text>
+              <text class="wheel-center" x="160" y="155" text-anchor="middle" font-size="11" font-weight="700">8가지</text>
+              <text class="wheel-center" x="160" y="170" text-anchor="middle" font-size="11" font-weight="700">기본 감정</text>
+            </svg>
+            <div class="wheel-legend">
+              <div class="wheel-legend-title">🌈 8가지 기본 감정</div>
+              <div class="emotion-tag-grid">
+                <span class="emotion-chip" style="background:#a67c00;">😄 기쁨</span>
+                <span class="emotion-chip" style="background:#2d8a3e;">🤝 신뢰</span>
+                <span class="emotion-chip" style="background:#3a7a3a;">😨 공포</span>
+                <span class="emotion-chip" style="background:#0077a8;">😲 놀람</span>
+                <span class="emotion-chip" style="background:#2a4d8a;">😢 슬픔</span>
+                <span class="emotion-chip" style="background:#6b006b;">🤢 혐오</span>
+                <span class="emotion-chip" style="background:#c43d00;">😠 분노</span>
+                <span class="emotion-chip" style="background:#a35800;">🔮 기대</span>
+              </div>
+              <div class="highlight-box">
+                💡 색이 <strong>진할수록 강한 감정</strong>, 연할수록 순한 감정.<br>
+                인접한 두 감정이 합쳐져 새로운 감정이 생겨납니다.<br>
+                예) 기쁨 + 신뢰 → <strong>사랑</strong>, 공포 + 놀람 → <strong>경외감</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="point-list">
+            <li>플루치크의 이론은 '심리 진화론적' 관점임을 강조 — 감정이 생존을 위해 진화했다는 점이 핵심</li>
+            <li>감정의 바퀴는 색 농도(강도)와 위치(유사성·반대)로 감정 간 관계를 직관적으로 보여줌</li>
+            <li>공포 → 무대 공포증처럼 일상 예시로 감정이 행동에 미치는 영향을 설명</li>
+            <li>감정에 정답이 없고, 모든 감정이 자연스럽고 필요하다는 인식 심어주기</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="question-list">
+            <li><span class="q-mark">Q</span>오늘 내가 느낀 감정은 8가지 중 어떤 것에 가장 가깝나요? 그 감정을 느낀 이유는 무엇인가요?</li>
+            <li><span class="q-mark">Q</span>공포라는 감정이 왜 생존에 필요했을까요? 공포가 없다면 어떤 일이 생길까요?</li>
+            <li><span class="q-mark">Q</span>감정의 바퀴에서 반대편에 있는 두 감정을 찾아보고, 같은 상황에서 서로 다른 감정을 느낄 수 있을지 생각해 보세요.</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="activity-box">
+            <strong>나의 감정 지도 만들기</strong>
+            학생들이 최근 일주일 동안 겪은 상황과 그때 느꼈던 감정을 감정의 바퀴 위에 표시한다. 비슷한 감정끼리 묶어 보고, 어떤 감정을 가장 자주 느끼는지, 거의 느끼지 못한 감정은 무엇인지 이야기 나눈다. 짝과 비교하며 같은 상황에서도 다른 감정을 느낄 수 있음을 발견한다.
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="caution-box">
+            <span class="icon">🔔</span>
+            <span>학생들이 자신의 감정을 발표할 때 비교·평가하지 않도록 안전한 분위기를 조성한다. 혐오·분노 등 부정적으로 보이는 감정도 생존에 필요한 자연스러운 반응임을 명확히 안내한다. 감정 이름을 모르거나 표현에 익숙하지 않은 학생을 배려한다.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 자료 2 ===== -->
+    <section class="panel" id="d2" data-title="자료 2. 뇌 과학으로 본 감정">
+      <div class="panel-head">
+        <div class="panel-kicker">자료별 상세 내용</div>
+        <h2 class="panel-title"><span class="data-num c2">2</span>뇌 과학으로 본 감정</h2>
+        <p class="panel-desc">변연계 · 1차·2차 감정 · 감정과 이성·기억의 관계</p>
+      </div>
+      <div class="subtabs" role="tablist">
+        <button class="subtab" role="tab">📝 핵심 요약</button>
+        <button class="subtab" role="tab">👩‍🏫 설명 포인트</button>
+        <button class="subtab" role="tab">❓ 발문</button>
+        <button class="subtab" role="tab">🎨 활동</button>
+        <button class="subtab" role="tab">⚠️ 유의점</button>
+      </div>
+      <div class="card">
+        <div class="subpanel" role="tabpanel">
+          <div class="summary-box">
+            뇌 과학에서 감정은 <strong>변연계</strong>를 중심으로 조직되며, 단순히 이성의 반대가 아니다. 기본 감정(1차적 감정)은 생존을 위한 본능적 처리이고, 학습을 통해 형성되는 <strong>2차적 감정</strong>은 대뇌피질의 발달로 더욱 복잡해진다. 감정은 기억(해마·편도)과 긴밀히 연결되어 있으며, <strong>정서가 안정될수록 두뇌 발달과 학습이 더 잘 이루어진다</strong>는 연구 결과가 있다.
+          </div>
+          <p class="source-note">출처: 한국뇌과학연구원(2015), 감정, 뇌과학으로 바라보다, 브레인 Vol.52.</p>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="point-list">
+            <li><strong>변연계</strong>: 감정의 중심. 파충류 뇌보다 발달한 포유류 뇌의 핵심 구조로, 즐거움·불쾌함 등 정서 상태를 만들어 냄</li>
+            <li><strong>1차 감정</strong>: 학습 없이 자동으로 반응 — 갑자기 큰 소리에 깜짝 놀라는 것, 낯선 위협에 공포를 느끼는 것이 예시</li>
+            <li><strong>2차 감정</strong>: 경험·학습으로 형성 — 치과 집게만 봐도 불안한 것처럼, 특정 대상이나 상황과 감정이 연결된 것</li>
+            <li><strong>전두엽 + 변연계 협력</strong>: 로봇처럼 감정이 없으면 오히려 이성적 판단이 어려워짐. 감정은 이성을 방해하는 것이 아니라 협력자</li>
+            <li><strong>기억과 감정</strong>: 해마·편도 연결 → 즐거운 경험일수록 장기 기억으로 저장. 부정적 감정(공포·분노)은 시냅스에 영향을 줘 기억력 저하 가능</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="question-list">
+            <li><span class="q-mark">Q</span>재미있거나 즐거웠던 수업 내용이 더 잘 기억되는 경험이 있나요? 왜 그럴까요?</li>
+            <li><span class="q-mark">Q</span>치과 집게를 보기만 해도 긴장된다면, 이것은 1차 감정일까요, 2차 감정일까요? 그 이유는 무엇인가요?</li>
+            <li><span class="q-mark">Q</span>감정이 없는 로봇이 인간보다 더 이성적인 결정을 내릴 수 있을까요? 자신의 생각을 말해 보세요.</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="activity-box">
+            <strong>'기억에 남는 순간' 감정 분석</strong>
+            학생들이 가장 선명하게 기억하는 경험 한 가지를 떠올리고, 그때 어떤 감정을 느꼈는지 기록한다. '즐거운 기억 vs. 두렵거나 화났던 기억' 두 가지를 비교하며 감정이 기억력에 미치는 영향을 토의한다. 뇌과학 원리(해마·편도 연결)와 연결 지어 설명하는 미니 강의로 마무리.
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="caution-box">
+            <span class="icon">🔔</span>
+            <span>뇌 과학 내용은 중학생 수준에 맞게 단순화하여 설명한다. '감정은 이성의 반대'라는 오개념을 바로잡는 데 집중하고, 정서 안정이 학습에도 긍정적 영향을 미친다는 점을 통해 학생들이 자신의 감정 상태를 돌아보도록 유도한다.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 자료 3 ===== -->
+    <section class="panel" id="d3" data-title="자료 3. 유스트레스와 디스트레스">
+      <div class="panel-head">
+        <div class="panel-kicker">자료별 상세 내용</div>
+        <h2 class="panel-title"><span class="data-num c3">3</span>유스트레스와 디스트레스</h2>
+        <p class="panel-desc">스트레스의 두 얼굴 · 긍정적 활용 관점</p>
+      </div>
+      <div class="subtabs" role="tablist">
+        <button class="subtab" role="tab">📝 핵심 요약</button>
+        <button class="subtab" role="tab">👩‍🏫 설명 포인트</button>
+        <button class="subtab" role="tab">❓ 발문</button>
+        <button class="subtab" role="tab">🎨 활동</button>
+        <button class="subtab" role="tab">⚠️ 유의점</button>
+      </div>
+      <div class="card">
+        <div class="subpanel" role="tabpanel">
+          <div class="summary-box">
+            스트레스는 무조건 나쁜 것이 아니다. <strong>유스트레스(eustress)</strong>는 자극에 긍정적으로 반응하는 좋은 스트레스로, 기억력·집중력 향상, 면역 기능 강화, 성장의 기회를 준다. <strong>디스트레스(distress)</strong>는 자신의 능력을 초과하는 과도한 자극에 부정적으로 반응하는 것이다. 스트레스를 나의 편으로 활용하는 관점이 중요하다.
+          </div>
+          <p class="source-note">출처: 국민건강보험(2017), 건강iN 매거진.</p>
+          <div class="block-label bl-summary">📊 유스트레스 vs. 디스트레스 비교</div>
+          <div class="table-wrap">
+            <table class="compare-table">
+              <thead>
+                <tr><th>구분</th><th class="eu">유스트레스 (Eustress)</th><th class="dis">디스트레스 (Distress)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>의미</td><td>스트레스 요인에 긍정적으로 반응</td><td>스트레스 요인에 부정적으로 반응</td></tr>
+                <tr><td>발생 상황</td><td>기분 좋은 기대, 가슴 설레는 일 앞에서의 긴장감</td><td>능력을 초과하는 과다한 외부 자극 발생 시</td></tr>
+                <tr><td>신체 반응</td><td>아드레날린·코르티솔 분비 → 집중력·기억력 향상, 면역 강화</td><td>지속적 긴장, 소진, 불안, 피로 누적</td></tr>
+                <tr><td>호르몬</td><td>옥시토신(유대감↑, 혈압↓), 코르티솔(염증 억제)</td><td>만성 코르티솔 과다 → 면역 저하</td></tr>
+                <tr><td>결과</td><td>성숙·성장, 자신감 향상, 문제 해결 능력 강화</td><td>건강 이상, 의욕 저하, 정신 건강 문제</td></tr>
+                <tr><td>예시</td><td>발표 전 두근거림, 시험 전 집중력 향상</td><td>만성 과부하, 회피하고 싶은 긴장감</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="point-list">
+            <li>스트레스 = 나쁜 것이라는 고정관념 깨기 → 대부분의 학생이 디스트레스만을 스트레스라고 오해함을 짚어줌</li>
+            <li>유스트레스 사례를 학생 경험과 연결: 좋아하는 사람 앞에서의 두근거림, 경기 전 긴장감</li>
+            <li>코르티솔이 단기적으로 집중력·염증 억제에 도움이 되나 만성화되면 문제가 생긴다는 점 설명</li>
+            <li>디스트레스도 관점을 바꾸면 유스트레스로 전환 가능 → 성장 마인드셋과 연결</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="question-list">
+            <li><span class="q-mark">Q</span>최근에 긴장되거나 떨렸던 경험이 있나요? 그것이 결과적으로 좋은 스트레스였나요, 나쁜 스트레스였나요?</li>
+            <li><span class="q-mark">Q</span>같은 상황(예: 발표)이 어떤 사람에게는 유스트레스, 어떤 사람에게는 디스트레스가 되는 이유는 무엇일까요?</li>
+            <li><span class="q-mark">Q</span>스트레스를 나의 '편'으로 만들려면 어떤 생각이나 행동이 필요할까요?</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="activity-box">
+            <strong>나의 스트레스 분류하기</strong>
+            학생들이 최근 느꼈던 스트레스 상황 3가지를 포스트잇에 적고, 유스트레스/디스트레스로 분류한다. 분류 이유를 짝과 공유하고, 디스트레스로 분류한 것을 유스트레스로 바꿀 수 있는 '관점 전환 문장'을 만들어 본다. (예: "시험이 너무 힘들어" → "시험이 내 실력을 더 키울 기회야")
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="caution-box">
+            <span class="icon">🔔</span>
+            <span>유스트레스를 강조하다 학생들의 실질적인 스트레스를 무시하거나 "그냥 긍정적으로 생각해"라는 메시지를 주지 않도록 주의한다. 디스트레스의 심각성도 충분히 인정하면서, 스트레스를 다루는 능동적 태도를 길러 주는 방향으로 안내한다.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 자료 4 ===== -->
+    <section class="panel" id="d4" data-title="자료 4. 스트레스 관리">
+      <div class="panel-head">
+        <div class="panel-kicker">자료별 상세 내용</div>
+        <h2 class="panel-title"><span class="data-num c4">4</span>스트레스 관리</h2>
+        <p class="panel-desc">생활 습관 · 이완 요법 · 감정 표현 · 자원 활용</p>
+      </div>
+      <div class="subtabs" role="tablist">
+        <button class="subtab" role="tab">📝 핵심 요약</button>
+        <button class="subtab" role="tab">👩‍🏫 설명 포인트</button>
+        <button class="subtab" role="tab">❓ 발문</button>
+        <button class="subtab" role="tab">🎨 활동</button>
+        <button class="subtab" role="tab">⚠️ 유의점</button>
+      </div>
+      <div class="card">
+        <div class="subpanel" role="tabpanel">
+          <div class="summary-box">
+            스트레스 관리는 크게 4가지 전략으로 구성된다. <strong>①생활 습관 관리</strong>: 식사·운동·햇빛·웃음을 통한 세로토닌 분비 촉진. <strong>②이완 요법</strong>: 명상·복식 호흡·점진적 근육 이완. <strong>③감정 표현·자기 주장·의사소통</strong>: 감정 억누름이 스트레스 원인이 됨. <strong>④자원 활용</strong>: 자신의 강점, 주변 사람, 기관을 적극 활용.
+          </div>
+          <div class="block-label bl-summary">🔄 스트레스 관리 4단계 흐름</div>
+          <div class="flow-chart">
+            <div class="flow-step">
+              <div class="flow-icon">🥗</div>
+              <div class="flow-title">① 생활 습관 관리</div>
+              <ul class="flow-body">
+                <li>천천히 씹어 먹기 → 세로토닌↑</li>
+                <li>견과류·브로콜리 섭취</li>
+                <li>규칙적 운동</li>
+                <li>햇빛 쬐기</li>
+                <li>자주 웃기 → 엔도르핀↑</li>
+              </ul>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon">🧘</div>
+              <div class="flow-title">② 이완 요법</div>
+              <ul class="flow-body">
+                <li>마음 다스리기·명상</li>
+                <li>자기 암시·상상 요법</li>
+                <li>스트레칭</li>
+                <li>복식 호흡</li>
+                <li>점진적 근육 이완</li>
+              </ul>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon">💬</div>
+              <div class="flow-title">③ 감정 표현·소통</div>
+              <ul class="flow-body">
+                <li>감정 억누름 ≠ 해결</li>
+                <li>자신의 감정 언어로 표현</li>
+                <li>자기 주장 하기</li>
+                <li>의사소통으로 대인 관계 개선</li>
+              </ul>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+              <div class="flow-icon">🤝</div>
+              <div class="flow-title">④ 자원 활용</div>
+              <ul class="flow-body">
+                <li>나의 강점·장점 활용</li>
+                <li>도움 줄 수 있는 사람 찾기</li>
+                <li>전문 기관 이용</li>
+                <li>학교 상담실·보건실 활용</li>
+              </ul>
+            </div>
+          </div>
+          <div class="highlight-box">
+            🧠 <strong>세로토닌과 스트레스</strong>: 씹기·운동·햇빛·웃음 모두 뇌의 세로토닌(안정감 신경전달물질) 분비를 촉진한다. 억지로 웃어도 뇌는 실제 웃는 것으로 반응한다는 점을 학생들에게 흥미로운 사실로 전달할 수 있다.
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="point-list">
+            <li>세로토닌이 안정감을 제공하는 신경전달물질임을 쉽게 설명 → '행복 호르몬'이라는 별칭 활용</li>
+            <li>웃음의 과학: 억지로 웃어도 뇌는 진짜 웃는 것으로 인식 → 표정의 힘</li>
+            <li>감정 표현이 의사소통이자 스트레스 해소임을 강조 → 감정 억압이 오히려 스트레스를 키움</li>
+            <li>자원 활용 시 학교 내 자원(상담 교사, 보건 교사, 친구, 담임)을 구체적으로 안내</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="question-list">
+            <li><span class="q-mark">Q</span>스트레스를 받을 때 나는 주로 어떻게 해소하나요? 오늘 배운 4가지 방법 중 내가 이미 쓰고 있는 방법이 있나요?</li>
+            <li><span class="q-mark">Q</span>억지로 웃어도 뇌가 실제로 웃는 것으로 반응한다는 사실이 흥미롭지 않나요? 오늘 하루 억지 미소를 한번 지어보면 어떨까요?</li>
+            <li><span class="q-mark">Q</span>힘들 때 가장 도움을 요청하기 쉬운 자원(사람·기관)은 무엇인가요?</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="activity-box">
+            <strong>나만의 스트레스 관리 처방전 만들기</strong>
+            처방전 양식(병원 처방전 모양)을 활용하여 '나에게 맞는 스트레스 관리법 처방전'을 작성한다. 4단계 각각에서 자신이 실천할 수 있는 방법을 1가지씩 선택하여 '처방'으로 적고, 옆 친구에게 처방전을 교환하여 서로 응원 메시지를 남긴다. 처방전은 게시판에 부착하거나 수첩에 보관.
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="caution-box">
+            <span class="icon">🔔</span>
+            <span>이완 요법 실습(복식 호흡, 점진적 근육 이완) 시 충분한 설명과 시범을 먼저 보인다. 감정 표현 활동 시 개인 정보 보호에 유의하고, 학생이 원치 않는 경우 강요하지 않는다. 자원 활용에서 전문 기관 도움을 구하는 것이 약함이 아님을 반드시 강조한다.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 자료 5 ===== -->
+    <section class="panel" id="d5" data-title="자료 5. 지지와 공감하기">
+      <div class="panel-head">
+        <div class="panel-kicker">자료별 상세 내용</div>
+        <h2 class="panel-title"><span class="data-num c5">5</span>지지와 공감하기</h2>
+        <p class="panel-desc">또래 지지 · 신호 알아차리기 · 도움 연결하기</p>
+      </div>
+      <div class="subtabs" role="tablist">
+        <button class="subtab" role="tab">📝 핵심 요약</button>
+        <button class="subtab" role="tab">👩‍🏫 설명 포인트</button>
+        <button class="subtab" role="tab">❓ 발문</button>
+        <button class="subtab" role="tab">🎨 활동</button>
+        <button class="subtab" role="tab">⚠️ 유의점</button>
+      </div>
+      <div class="card">
+        <div class="subpanel" role="tabpanel">
+          <div class="summary-box">
+            청소년기에는 <strong>또래의 위로와 지지</strong>가 정신 건강 회복에 매우 중요하다. 힘들어하는 친구의 신호를 알아차리고, 비판 없이 경청하며, 필요시 어른에게 도움을 연결하는 4단계 과정이 핵심이다. 정신 건강 문제는 단일 원인이 아니므로, 가정·학교·기관이 함께 접근하고 무엇보다 <strong>인식 개선</strong>이 필요하다.
+          </div>
+          <p class="source-note">출처: 학생정신건강지원센터(2020), 정신 건강 톺아보기[읽기 자료]</p>
+          <div class="block-label bl-summary">💜 지지와 공감 4단계</div>
+          <div class="support-steps">
+            <div class="support-step">
+              <div class="support-step-num">1단계</div>
+              <div class="support-step-title">👀 알아차리기</div>
+              <div class="support-step-body">식욕 변화, 수면 장애, 감정 조절 어려움, 대인 관계 변화, 외모·위생 관심 저하 등 신호를 민감하게 감지한다.</div>
+            </div>
+            <div class="support-step">
+              <div class="support-step-num">2단계</div>
+              <div class="support-step-title">🚶 다가가기</div>
+              <div class="support-step-body">조심스럽게 먼저 말을 건다. "요즘 좀 힘들어 보이는데, 괜찮아?" 같은 부드러운 말로 대화의 문을 연다.</div>
+            </div>
+            <div class="support-step">
+              <div class="support-step-num">3단계</div>
+              <div class="support-step-title">👂 듣기</div>
+              <div class="support-step-body">비난·판단 없이 경청한다. 친구의 격한 감정을 이해하며, 표현하는 것을 잘 들어 준다. 경청과 공감, 직접 질문이 대표 방법.</div>
+            </div>
+            <div class="support-step">
+              <div class="support-step-num">4단계</div>
+              <div class="support-step-title">🔗 연결하기</div>
+              <div class="support-step-body">문제가 심각하다면 또래보다 어른(보건 교사, 상담 교사, 부모)에게 도움을 요청하도록 함께 용기를 낸다.</div>
+            </div>
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="point-list">
+            <li>신호 알아차리기: 신체·심리·사회적 변화가 모두 정신 건강 신호가 될 수 있음. 한 가지 변화보다 복합적 변화에 주목</li>
+            <li>경청 vs. 해결사: 친구가 원하는 것은 해결책이 아닌 '들어주는 것'임을 강조</li>
+            <li>직접 질문의 힘: "혹시 스스로를 해치고 싶다는 생각이 드니?"처럼 직접 묻는 것이 오히려 안전 — 자살에 대한 직접 질문이 위험을 키우지 않는다는 연구 소개 가능</li>
+            <li>어른에게 연결: 친구의 비밀을 지키는 것보다 친구의 안전이 더 중요함을 명확히 인식시키기</li>
+            <li>정신 건강 낙인 해소: 정신 건강 문제는 의지 부족이 아닌 복합적 원인임을 이해시킴</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <ul class="question-list">
+            <li><span class="q-mark">Q</span>친구가 힘들어 보일 때 어떻게 하면 좋을지 알고 있나요? 지금까지 그런 친구에게 어떻게 했나요?</li>
+            <li><span class="q-mark">Q</span>친구의 비밀을 지키는 것과 친구의 안전을 지키는 것이 충돌할 때, 어떻게 해야 할까요?</li>
+            <li><span class="q-mark">Q</span>내가 힘들 때 도움을 요청하기 어려운 이유는 무엇인가요? 어떻게 하면 더 쉽게 도움을 구할 수 있을까요?</li>
+          </ul>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="activity-box">
+            <strong>역할극: 힘든 친구와 대화하기</strong>
+            짝을 이루어 '힘들어하는 친구'와 '지지하는 친구' 역할을 나눈다. 제시된 시나리오(예: 친구가 요즘 말이 없고 밥도 안 먹음)를 보고, 4단계(알아차리기 → 다가가기 → 듣기 → 연결하기)를 실제로 연습한다. 활동 후 "어떤 말이 가장 도움이 됐나?" "어떤 말은 오히려 불편했나?"를 나누며 공감 대화의 기술을 익힌다.
+          </div>
+        </div>
+        <div class="subpanel" role="tabpanel">
+          <div class="caution-box">
+            <span class="icon">🔔</span>
+            <span>역할극 시 실제로 힘든 학생이 감정이 격해질 수 있으므로 사전에 학생 상태를 파악한다. "도움을 요청하는 것은 약함이 아니다"를 반복적으로 강조한다. 수업 중 개인적 어려움을 털어놓는 학생이 있으면 수업 후 개별 면담을 통해 적절히 연결한다. 정신 건강에 대한 고정관념과 편견을 무심코 강화하는 표현을 쓰지 않도록 교사 스스로도 주의한다.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 참고 영상 ===== -->
+    <section class="panel" id="video" data-title="참고 영상">
+      <div class="panel-head">
+        <div class="panel-kicker">수업 자료</div>
+        <h2 class="panel-title">참고 영상</h2>
+        <p class="panel-desc">수업에 활용할 수 있는 영상 3편입니다.</p>
+      </div>
+      <div class="video-grid">
+        <a class="video-card" href="https://www.youtube.com/watch?v=qZnNL2BpSxA" target="_blank" rel="noopener" aria-label="참고 영상 1, YouTube에서 새 창으로 열기">
+          <span class="video-thumb">
+            <img src="https://i.ytimg.com/vi/qZnNL2BpSxA/hqdefault.jpg" alt="참고 영상 1 썸네일" loading="lazy"
+              onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://img.youtube.com/vi/qZnNL2BpSxA/mqdefault.jpg'}else{this.parentNode.classList.add('no-img');this.remove()}">
+            <span class="video-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+            <span class="video-fallback">🎬 영상 1</span>
+          </span>
+          <span class="video-info">
+            <span class="video-num">참고 영상 1</span>
+            <span class="video-open">YouTube에서 보기 ↗</span>
+          </span>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=sEC0WnVbuTk" target="_blank" rel="noopener" aria-label="참고 영상 2, YouTube에서 새 창으로 열기">
+          <span class="video-thumb">
+            <img src="https://i.ytimg.com/vi/sEC0WnVbuTk/hqdefault.jpg" alt="참고 영상 2 썸네일" loading="lazy"
+              onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://img.youtube.com/vi/sEC0WnVbuTk/mqdefault.jpg'}else{this.parentNode.classList.add('no-img');this.remove()}">
+            <span class="video-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+            <span class="video-fallback">🎬 영상 2</span>
+          </span>
+          <span class="video-info">
+            <span class="video-num">참고 영상 2</span>
+            <span class="video-open">YouTube에서 보기 ↗</span>
+          </span>
+        </a>
+        <a class="video-card" href="https://www.youtube.com/watch?v=3mMWtydQRco" target="_blank" rel="noopener" aria-label="참고 영상 3, YouTube에서 새 창으로 열기">
+          <span class="video-thumb">
+            <img src="https://i.ytimg.com/vi/3mMWtydQRco/hqdefault.jpg" alt="참고 영상 3 썸네일" loading="lazy"
+              onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://img.youtube.com/vi/3mMWtydQRco/mqdefault.jpg'}else{this.parentNode.classList.add('no-img');this.remove()}">
+            <span class="video-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="56" height="40"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.2.3 34 .3 34 .3s-21.2 0-26.5 1.4a8.5 8.5 0 0 0-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6C12.8 47.7 34 47.7 34 47.7s21.2 0 26.5-1.4a8.5 8.5 0 0 0 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#f00"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+            <span class="video-fallback">🎬 영상 3</span>
+          </span>
+          <span class="video-info">
+            <span class="video-num">참고 영상 3</span>
+            <span class="video-open">YouTube에서 보기 ↗</span>
+          </span>
+        </a>
+      </div>
+      <p class="video-note">썸네일을 누르면 YouTube 새 창에서 재생됩니다. 수업 전 미리 시청하고 활용 구간을 정해 두세요.</p>
+
+      <div class="video-guide">
+        <div class="card">
+          <h3>🎯 시청 전</h3>
+          <ul>
+            <li>시청 목적을 한 문장으로 안내</li>
+            <li>"영상 속 인물은 어떤 감정을 느끼고 있을까?" 같은 관찰 질문 미리 제시</li>
+            <li>필요한 구간만 골라 시청 시간 조절</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>👀 시청 중</h3>
+          <ul>
+            <li>감정의 바퀴(자료 1)를 띄워 두고 떠오르는 감정 표시</li>
+            <li>스트레스 장면이 나오면 유스·디스트레스(자료 3) 중 어디에 가까운지 메모</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>💬 시청 후</h3>
+          <ul>
+            <li>인상 깊은 장면과 그때 느낀 감정 나누기</li>
+            <li>영상 내용을 스트레스 관리 4단계(자료 4)나 지지·공감 4단계(자료 5)와 연결</li>
+            <li>민감한 장면이 있다면 감정 정리 시간 확보</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 수업 흐름 ===== -->
+    <section class="panel" id="lesson" data-title="수업 흐름">
+      <div class="panel-head">
+        <div class="panel-kicker">수업 자료</div>
+        <h2 class="panel-title">교사용 수업 활용 자료</h2>
+        <p class="panel-desc">도입 · 전개 · 정리 · 확장 단계별 질문과 활동</p>
+      </div>
+      <div class="lesson-grid">
+        <div class="card">
+          <div class="lesson-card-title"><span class="lesson-badge lb-intro">도입</span> 도입 질문</div>
+          <ul class="lesson-list">
+            <li>"오늘 아침 눈 뜨면서 느낀 감정을 한 단어로 말해볼까요?"</li>
+            <li>"스트레스를 받으면 어떤 행동이 나오나요? 먹고 싶어지나요, 아니면 잠이 오나요?"</li>
+            <li>"감정을 억누르면 어떻게 될까요? 경험이 있나요?"</li>
+            <li>"스트레스가 꼭 나쁜 걸까요? 스트레스 덕분에 잘됐던 경험이 있나요?"</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="lesson-card-title"><span class="lesson-badge lb-main">전개</span> 전개 활동</div>
+          <ul class="lesson-list">
+            <li>감정의 바퀴를 보며 오늘 내 감정 표시하기</li>
+            <li>참고 영상 시청 후 감정·스트레스 장면 이야기 나누기</li>
+            <li>유스트레스/디스트레스 사례 카드 분류 활동</li>
+            <li>스트레스 관리 처방전 작성 후 짝과 교환</li>
+            <li>역할극: 힘든 친구와 4단계 공감 대화 연습</li>
+            <li>뇌 과학 퀴즈: 1차 감정 vs. 2차 감정 사례 맞히기</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="lesson-card-title"><span class="lesson-badge lb-close">정리</span> 정리 질문</div>
+          <ul class="lesson-list">
+            <li>"오늘 배운 내용 중 가장 놀라웠던 점은 무엇인가요?"</li>
+            <li>"유스트레스와 디스트레스의 차이를 한 문장으로 설명해 보세요."</li>
+            <li>"앞으로 스트레스를 받을 때 어떤 방법을 써볼 생각인가요?"</li>
+            <li>"힘든 친구에게 가장 먼저 해줄 수 있는 것은 무엇인가요?"</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="lesson-card-title"><span class="lesson-badge lb-ext">확장</span> 활동지 확장 아이디어</div>
+          <ul class="lesson-list">
+            <li>한 주 동안 나의 감정 일기 기록하기 (감정 + 상황 + 강도)</li>
+            <li>가족 인터뷰: 부모님은 어떻게 스트레스를 관리하시나요?</li>
+            <li>지역 사회 정신 건강 기관 조사 및 연락처 정리</li>
+            <li>내가 겪은 유스트레스 경험 수기 작성</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 정리하기 퀴즈 ===== -->
+    <section class="panel" id="quiz" data-title="정리하기 퀴즈">
+      <div class="panel-head">
+        <div class="panel-kicker">수업 자료</div>
+        <h2 class="panel-title">정리하기 퀴즈</h2>
+        <p class="panel-desc">보기를 눌러 정답 여부를 확인하고, 해설 버튼으로 설명을 볼 수 있습니다.</p>
+      </div>
+
+      <div class="card quiz-card">
+        <div class="quiz-q"><span>Q1.</span> 다음 중 <strong>유스트레스(eustress)</strong>의 사례로 가장 적절한 것은?</div>
+        <ul class="quiz-options">
+          <li><button data-r="wrong">① 만성적인 과로로 인해 의욕이 사라지고 극도로 피로해진 상태</button></li>
+          <li><button data-r="correct">② 좋아하는 가수 콘서트를 앞두고 두근거리고 흥분된 긴장감</button></li>
+          <li><button data-r="wrong">③ 능력을 초과하는 과다한 업무로 불안감과 소진이 생긴 상태</button></li>
+          <li><button data-r="wrong">④ 장기간 지속되는 인간관계 갈등으로 인한 우울감</button></li>
+        </ul>
+        <button class="btn quiz-answer-btn">정답 및 해설 보기</button>
+        <div class="quiz-answer-box">
+          ✅ <strong>정답: ②</strong><br>
+          유스트레스는 긍정적인 기대나 기분 좋은 일을 앞두고 느끼는 긴장감으로, 성장과 동기 부여로 이어지는 '좋은 스트레스'입니다. 콘서트 전 두근거림은 대표적인 유스트레스 사례입니다.
+        </div>
+      </div>
+
+      <div class="card quiz-card">
+        <div class="quiz-q"><span>Q2.</span> 다음 빈칸에 들어갈 알맞은 말은?</div>
+        <p class="quiz-stem">치과 집게를 보기만 해도 겁이 나는 것처럼, 이전 경험과 학습을 통해 특정 대상이나 상황과 연결된 복잡한 감정을 <strong>( &nbsp;&nbsp;&nbsp; ) 감정</strong>이라 한다.</p>
+        <ul class="quiz-options">
+          <li><button data-r="wrong">① 1차적</button></li>
+          <li><button data-r="correct">② 2차적</button></li>
+          <li><button data-r="wrong">③ 기본</button></li>
+          <li><button data-r="wrong">④ 본능적</button></li>
+        </ul>
+        <button class="btn quiz-answer-btn">정답 및 해설 보기</button>
+        <div class="quiz-answer-box">
+          ✅ <strong>정답: ② 2차적</strong><br>
+          2차적 감정은 학습을 통해 특정 사물·사건·상황과 연결된 감정입니다. 1차적 감정이 본능적·생존적인 것과 달리, 2차적 감정은 개인의 경험과 기억에 의해 형성됩니다.
+        </div>
+      </div>
+
+      <div class="card quiz-card">
+        <div class="quiz-q"><span>Q3.</span> 힘들어하는 친구를 도울 때 가장 <strong>적절하지 않은</strong> 행동은?</div>
+        <ul class="quiz-options">
+          <li><button data-r="wrong">① 친구가 어떤 말을 하든 비난하거나 판단하지 않고 경청한다.</button></li>
+          <li><button data-r="wrong">② 친구가 표현하는 격한 감정을 이해하며 잘 들어준다.</button></li>
+          <li><button data-r="correct">③ 친구가 심각하게 힘들어 보여도 비밀을 지키기 위해 어른에게 알리지 않는다.</button></li>
+          <li><button data-r="wrong">④ 문제 발견 시 또래보다 어른에게 도움을 요청하도록 한다.</button></li>
+        </ul>
+        <button class="btn quiz-answer-btn">정답 및 해설 보기</button>
+        <div class="quiz-answer-box">
+          ✅ <strong>정답: ③</strong><br>
+          친구가 심각하게 힘들어 보일 경우, 비밀 유지보다 친구의 안전이 최우선입니다. 또래 지지는 중요하지만, 심각한 문제는 반드시 어른(보건 교사, 상담 교사, 부모 등)에게 도움을 요청해야 합니다.
+        </div>
+      </div>
+    </section>
+
+    <div class="pager" id="pager"></div>
+  </main>
+</div>
+
+<footer class="footer">
+  <p><strong>감정과 스트레스</strong> | 중학교 보건 Ⅱ. 정서와 정신 건강 &gt; 02. 감정과 스트레스 (교과서 71~76쪽)</p>
+  <p style="margin-top:4px;">보건교사를 위한 소단원 참고 자료 · 수업 전 확인 및 수업 중 보충 설명 자료로 활용</p>
+  <p style="margin-top:8px;font-size:11px;">참고: 한국뇌과학연구원(2015) / 국민건강보험(2017) / 학생정신건강지원센터(2020)</p>
+</footer>
+
+<script>
+(function () {
+  const panels = Array.from(document.querySelectorAll('.panel'));
+  const ids = panels.map(p => p.id);
+  const navBtns = document.querySelectorAll('.nav-btn');
+  const pager = document.getElementById('pager');
+
+  function show(id, opts) {
+    opts = opts || {};
+    if (!ids.includes(id)) id = ids[0];
+    panels.forEach(p => p.classList.toggle('active', p.id === id));
+    navBtns.forEach(b => {
+      const on = b.dataset.go === id;
+      b.setAttribute('aria-current', on ? 'true' : 'false');
+      if (on && window.matchMedia('(max-width: 900px)').matches) {
+        b.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+      }
+    });
+
+    // pager
+    const i = ids.indexOf(id);
+    const prev = panels[i - 1], next = panels[i + 1];
+    pager.innerHTML = '';
+    if (prev) pager.appendChild(pagerBtn(prev, '이전', 'prev'));
+    if (next) pager.appendChild(pagerBtn(next, '다음', 'next'));
+
+    if (location.hash.slice(1) !== id) {
+      try { history.replaceState(null, '', '#' + id); } catch (e) {}
+    }
+    if (!opts.noScroll) {
+      const main = document.getElementById('main');
+      const y = main.getBoundingClientRect().top + window.scrollY - 70;
+      if (window.scrollY > y) window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+    }
+  }
+  function pagerBtn(panel, label, cls) {
+    const b = document.createElement('button');
+    b.className = cls;
+    b.innerHTML = '<small>' + label + '</small>' + panel.dataset.title;
+    b.addEventListener('click', () => show(panel.id));
+    return b;
+  }
+
+  document.addEventListener('click', e => {
+    const go = e.target.closest('[data-go]');
+    if (go) { e.stopPropagation(); show(go.dataset.go); }
+  });
+
+  // Sub tabs inside 자료 panels
+  document.querySelectorAll('.panel').forEach(panel => {
+    const tabs = panel.querySelectorAll('.subtab');
+    const subs = panel.querySelectorAll('.subpanel');
+    if (!tabs.length) return;
+    function select(n) {
+      tabs.forEach((t, k) => { t.setAttribute('aria-selected', k === n ? 'true' : 'false'); t.tabIndex = k === n ? 0 : -1; });
+      subs.forEach((s, k) => s.classList.toggle('active', k === n));
+    }
+    tabs.forEach((t, n) => {
+      t.addEventListener('click', () => select(n));
+      t.addEventListener('keydown', e => {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          const m = (n + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+          select(m); tabs[m].focus();
+        }
+      });
+    });
+    select(0);
+  });
+
+  // Concept cards
+  document.querySelectorAll('.concept-card').forEach(card => {
+    function toggle() {
+      const was = card.classList.contains('active');
+      document.querySelectorAll('.concept-card').forEach(c => { c.classList.remove('active'); c.setAttribute('aria-expanded', 'false'); });
+      if (!was) { card.classList.add('active'); card.setAttribute('aria-expanded', 'true'); }
+    }
+    card.addEventListener('click', e => { if (!e.target.closest('[data-go]')) toggle(); });
+    card.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target === card) { e.preventDefault(); toggle(); } });
+  });
+
+  // Quiz
+  document.querySelectorAll('.quiz-options button').forEach(b => {
+    b.addEventListener('click', () => {
+      b.closest('.quiz-options').querySelectorAll('button').forEach(o => o.classList.remove('correct', 'wrong'));
+      b.classList.add(b.dataset.r);
+    });
+  });
+  document.querySelectorAll('.quiz-answer-btn').forEach(b => {
+    b.addEventListener('click', () => {
+      const box = b.nextElementSibling;
+      const on = box.classList.toggle('show');
+      b.textContent = on ? '해설 닫기' : '정답 및 해설 보기';
+    });
+  });
+
+  window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+  show(location.hash.slice(1) || 'overview', { noScroll: true });
+})();
+</script>
+</body>
+</html>
